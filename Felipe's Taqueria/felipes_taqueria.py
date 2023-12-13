@@ -16,32 +16,16 @@ menu = {
 # print(menu.values())
 # functions to place order and calculate prices
 def place_order(menu):
-    for order in menu.items():
-        
-        if order in menu.items():
-            order = input('What is your order: ').isupper()
-            print(order)
-        else:
-            print("order not in menu ")
-            order = input('What is your order: ').isupper()
-
-        if order == 'done':
+    total_price = 0
+    while True:
+        order = input('What is your order: ')
+        if order.lower() == 'done':
             break
-
-
-            # item = order
-            # print(order)
-            # if order == 'done':
-            #     break
-            # total_price += order
-            # print(f"{order}: ${price}")
-        # if order in menu:
-        #     total_price += menu[order]
-        #     print((f"{order.capitalize()} added to the order."))
-        # else:
-        #     print("sorry, that item is not on the menu. Please choose again.")
-
-        #     print(f"Total price: ${total_price:.2f}")
+        if order in menu:
+            total_price += menu[order]
+            print(f"{order.capitalize()} added to the order. Total price: ${total_price:.2f}")
+        else:
+            print("Sorry, that item is not on the menu. Please choose again.")
 place_order(menu)
 
 
